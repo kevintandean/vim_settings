@@ -16,12 +16,10 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'bling/vim-airline'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/nerdtree.git'
-Bundle 'tpope/vim-unimpaired.git'
 Bundle 'majutsushi/tagbar'
-"
-"
-"Color Themes
+" Color Themes
 Bundle 'flazz/vim-colorschemes'
+Bundle 'tpope/vim-unimpaired'
 colorscheme Monokai
 
 """"""""
@@ -100,12 +98,11 @@ set completeopt=menuone,longest,preview
 "
 " Plugins config
 "
-no J 20j
-no K 20k
 
 " CtrlP
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/* 
 map <C-m> :CtrlPBuffer<CR>
+
 " Ultisnip
 " NOTE: <f1> otherwise it overrides <tab> forever
 let g:UltiSnipsExpandTrigger="<f1>"
@@ -161,11 +158,13 @@ let mapleader = ','
 nnoremap <Leader>p :set paste<CR>
 nnoremap <Leader>o :set nopaste<CR>
 noremap  <Leader>g :GitGutterToggle<CR>
+
 nnoremap <leader>p oimport ipdb;ipdb.set_trace()<Esc>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 map <C-n> :NERDTreeToggle<CR>
+"
 " this machine config
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
